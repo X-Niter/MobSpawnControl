@@ -1,0 +1,4 @@
+name: NetherMobs
+version: '${project.version}'
+main: com.github.xniter.nethermobs.NetherMobs
+api-version: '1.20'
