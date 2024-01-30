@@ -10,7 +10,14 @@ public class EntitySpawning implements Listener {
     EntityType[] netherMobs;
 
     public EntitySpawning() {
-        this.netherMobs = new EntityType[]{EntityType.GHAST, EntityType.BLAZE, EntityType.ZOMBIFIED_PIGLIN, EntityType.MAGMA_CUBE, EntityType.SKELETON};
+        this.netherMobs = new EntityType[]{
+                EntityType.GHAST,
+                EntityType.BLAZE,
+                EntityType.ZOMBIFIED_PIGLIN,
+                EntityType.MAGMA_CUBE,
+                EntityType.SKELETON,
+                EntityType.WITHER_SKELETON
+        };
     }
 
     @EventHandler
