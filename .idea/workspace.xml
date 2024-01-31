@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="2.0.0 ready to go">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnControl.java" afterDir="false" />
-    </list>
+    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="Fix configs from re creating the config every time the server started." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +111,7 @@
       <workItem from="1706640434059" duration="7618000" />
       <workItem from="1706665834485" duration="687000" />
       <workItem from="1706666572603" duration="4389000" />
-      <workItem from="1706674565615" duration="450000" />
+      <workItem from="1706674565615" duration="949000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.0 Init">
       <option name="closed" value="true" />
@@ -164,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706670330228</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix configs from re creating the config every time the server started.">
+      <option name="closed" value="true" />
+      <created>1706675324395</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706675324395</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +193,7 @@
     <MESSAGE value="Added wither skeleton to the list of Entity Types" />
     <MESSAGE value="Breaking changes -&gt; NetherMobs to MobSpawnControl in addition to the all new config file that gives you power over every spawn." />
     <MESSAGE value="2.0.0 ready to go" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.0.0 ready to go" />
+    <MESSAGE value="Fix configs from re creating the config every time the server started." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix configs from re creating the config every time the server started." />
   </component>
 </project>

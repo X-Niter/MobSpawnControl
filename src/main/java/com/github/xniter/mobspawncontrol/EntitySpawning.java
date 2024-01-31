@@ -1,5 +1,7 @@
 package com.github.xniter.mobspawncontrol;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,32 +18,31 @@ public class EntitySpawning implements Listener {
 
         for (EntityType entityType : EntityType.values()) {
             if (ConfigOptions.isEntityEnabled(entityType)) {
-                // Check if the entity type is configured to be enabled
                 if (entity.getType() == entityType) {
+                    // You might not want to cancel the event, just return if not using default spawning.
                     event.setCancelled(true);
-                    entity.remove();
 
-                    // Check if the spawn rate allows the entity to spawn
+                    // Check other conditions and modify spawning logic as needed.
                     int spawnRate = ConfigOptions.getSpawnRate(entityType);
                     if (spawnRate == 0 || MobSpawnControl.getRandom().nextInt(spawnRate / 10) == 0) {
-                        // Check if the entity can spawn in the current world
                         List<String> allowedWorlds = ConfigOptions.getAllowedWorlds(entityType);
-                        entity.getWorld();
                         if (isAllowedWorld(entity.getWorld().getName(), allowedWorlds)) {
-                            // Spawn the new entity
-                            int[] nums = new int[3];
-                            for (int i = 0; i < nums.length; ++i) {
-                                nums[i] = MobSpawnControl.getRandom().nextInt(5);
-                                nums[i] = MobSpawnControl.getRandom().nextInt(2) == 0 ? nums[i] : nums[i] * -1;
-                            }
-
-                            entity.getWorld().spawnEntity(entity.getLocation().add(new Vector(nums[0], nums[1], nums[2])), entityType);
-
+                            // Use BukkitScheduler for asynchronous tasks.
+                            Bukkit.getScheduler().runTask(MobSpawnControl.getPlugin(), () -> spawnCustomEntity(entity, entityType, entity.getLocation()));
                         }
                     }
                 }
             }
         }
+    }
+
+    private void spawnCustomEntity(Entity entity, EntityType entityType, Location location) {
+        // Adjust the spawning logic based on the original entity's location.
+        // Example: Adjust the Y-coordinate to be slightly above the original entity.
+        Location newLocation = location.clone().add(0, 1, 0);
+
+        // Spawn the new entity
+        entity.getWorld().spawnEntity(newLocation, entityType);
     }
 
     private boolean isAllowedWorld(String currentWorld, List<String> allowedWorlds) {
