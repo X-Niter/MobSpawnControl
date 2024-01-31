@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="1.0.0 Init">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="Added wither skeleton to the list of Entity Types">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetherMobs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MobSpawnControl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/ConfigOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/ConfigOptions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/EntitySpawning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/EntitySpawning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/NetherMobs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/NetherMobs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/NetherMobs-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/nethermobs/ConfigOptions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/nethermobs/EntitySpawning$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/nethermobs/EntitySpawning.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/nethermobs/NetherMobs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-NetherMobs-1.0.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +67,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
@@ -103,7 +121,8 @@
       <updated>1706605869429</updated>
       <workItem from="1706605870979" duration="1196000" />
       <workItem from="1706637840716" duration="2531000" />
-      <workItem from="1706640434059" duration="1607000" />
+      <workItem from="1706640434059" duration="7618000" />
+      <workItem from="1706665834485" duration="687000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.0 Init">
       <option name="closed" value="true" />
@@ -113,7 +132,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706641063750</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Workspace files, I need to add a gitignore">
+      <option name="closed" value="true" />
+      <created>1706642592856</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706642592856</updated>
+    </task>
+    <task id="LOCAL-00003" summary="isEnabled and spawn rate config options added with updated getters and setters">
+      <option name="closed" value="true" />
+      <created>1706642633482</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706642633482</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added wither skeleton to the list of Entity Types">
+      <option name="closed" value="true" />
+      <created>1706642661764</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706642661764</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +175,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0.0 Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.0 Init" />
+    <MESSAGE value="Workspace files, I need to add a gitignore" />
+    <MESSAGE value="isEnabled and spawn rate config options added with updated getters and setters" />
+    <MESSAGE value="Added wither skeleton to the list of Entity Types" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added wither skeleton to the list of Entity Types" />
   </component>
 </project>
