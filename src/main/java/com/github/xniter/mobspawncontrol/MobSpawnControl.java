@@ -9,8 +9,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public class MobSpawnControl extends JavaPlugin {
+    public static final Logger LOGGER = LogManager.getLogManager().getLogger("MobSpawnControl");
     private static JavaPlugin plugin;
     private static Random random;
     private boolean replaceOrig;
@@ -18,20 +21,25 @@ public class MobSpawnControl extends JavaPlugin {
     public MobSpawnControl() {
     }
 
+    public static JavaPlugin getPlugin() {
+        return plugin;
+    }
+
+    public static Random getRandom() {
+        return random;
+    }
+
     public void onEnable() {
         plugin = this;
         random = new Random();
         this.createConfig();
-        // Dynamically add EntityType values to ConfigOptions
-//        for (EntityType entityType : EntityType.values()) {
-//            if (entityType.isSpawnable() && entityType.isAlive()) {
-//                List<String> worldNames = new ArrayList<>();
-//                for (World world : Bukkit.getServer().getWorlds()) {
-//                    worldNames.add(world.getName());
-//                }
-//                ConfigOptions.addEntityType(entityType, false, 50, worldNames.toArray(new String[0]));  // Adjust default values as needed
-//            }
-//        }
+
+        // Schedule the repeating task
+        int delayTicks = 0;  // Initial delay in ticks (0 for no delay)
+        int periodTicks = 20;  // Repeat every 60 seconds (adjust as needed)
+        new MobSpawnTask().runTaskTimer(this, delayTicks, periodTicks);
+
+
         this.getServer().getPluginManager().registerEvents(new EntitySpawning(), this);
     }
 
@@ -83,15 +91,6 @@ public class MobSpawnControl extends JavaPlugin {
         } catch (Exception var6) {
             var6.printStackTrace();
         }
-    }
-
-
-    public static JavaPlugin getPlugin() {
-        return plugin;
-    }
-
-    public static Random getRandom() {
-        return random;
     }
 
     public boolean isReplaceOrig() {

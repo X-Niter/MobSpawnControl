@@ -10,17 +10,15 @@ import java.util.List;
 import java.util.Map;
 
 public class ConfigOptions {
+    static final Map<String, ConfigOptions> entityConfigMap = new HashMap<>();
     private final String name;
     private final Object defaultValue;
-    private Object value;
-
     // New parameters
     private final int defaultSpawnRate;
     private final List<String> defaultAllowedWorlds;
+    private Object value;
     private int spawnRate;
     private List<String> allowedWorlds;
-
-    static final Map<String, ConfigOptions> entityConfigMap = new HashMap<>();
 
     // Constructor without spawn rate and allowed worlds
     public ConfigOptions(String name, Object defaultValue) {
