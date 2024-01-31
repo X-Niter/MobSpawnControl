@@ -27,7 +27,7 @@ public class MobSpawnTask extends BukkitRunnable {
                 if (ConfigOptions.isEntityEnabled(entityType)) {
                     // Check other conditions and modify spawning logic as needed.
                     int spawnRate = ConfigOptions.getSpawnRate(entityType);
-                    if (spawnRate == 0 || MobSpawnControl.getRandom().nextInt(spawnRate / 10) == 0) {
+                    if (spawnRate != 0 && MobSpawnControl.getRandom().nextInt(spawnRate / 10) == 0) {
                         List<String> allowedWorlds = ConfigOptions.getAllowedWorlds(entityType);
                         if (isAllowedWorld(world.getName(), allowedWorlds)) {
                             spawnCustomEntity(spawnLocation, entityType);
