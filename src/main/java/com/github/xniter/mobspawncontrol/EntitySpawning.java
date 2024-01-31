@@ -6,6 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.util.Vector;
 
+import java.util.List;
+
 public class EntitySpawning implements Listener {
 
     @EventHandler
@@ -23,7 +25,7 @@ public class EntitySpawning implements Listener {
                     int spawnRate = ConfigOptions.getSpawnRate(entityType);
                     if (spawnRate == 0 || MobSpawnControl.getRandom().nextInt(spawnRate / 10) == 0) {
                         // Check if the entity can spawn in the current world
-                        String[] allowedWorlds = ConfigOptions.getAllowedWorlds(entityType);
+                        List<String> allowedWorlds = ConfigOptions.getAllowedWorlds(entityType);
                         entity.getWorld();
                         if (isAllowedWorld(entity.getWorld().getName(), allowedWorlds)) {
                             // Spawn the new entity
@@ -42,7 +44,7 @@ public class EntitySpawning implements Listener {
         }
     }
 
-    private boolean isAllowedWorld(String currentWorld, String[] allowedWorlds) {
+    private boolean isAllowedWorld(String currentWorld, List<String> allowedWorlds) {
         for (String allowedWorld : allowedWorlds) {
             if (allowedWorld.equalsIgnoreCase(currentWorld)) {
                 return true;

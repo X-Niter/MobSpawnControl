@@ -16,9 +16,9 @@ public class ConfigOptions {
 
     // New parameters
     private final int defaultSpawnRate;
-    private final String[] defaultAllowedWorlds;
+    private final List<String> defaultAllowedWorlds;
     private int spawnRate;
-    private String[] allowedWorlds;
+    private List<String> allowedWorlds;
 
     static final Map<String, ConfigOptions> entityConfigMap = new HashMap<>();
 
@@ -31,28 +31,28 @@ public class ConfigOptions {
     }
 
     // Constructor with all parameters
-    public ConfigOptions(String name, Object defaultValue, int defaultSpawnRate, String[] defaultAllowedWorlds) {
+    public ConfigOptions(String name, Object defaultValue, int defaultSpawnRate, List<String> defaultAllowedWorlds) {
         this.name = name;
         this.defaultValue = defaultValue;
         this.defaultSpawnRate = defaultSpawnRate;
         this.defaultAllowedWorlds = defaultAllowedWorlds != null ? defaultAllowedWorlds : initializeDefaultAllowedWorlds();
     }
 
-    private static String[] initializeDefaultAllowedWorlds() {
+    private static List<String> initializeDefaultAllowedWorlds() {
         List<String> worldNames = new ArrayList<>();
 
         for (World world : Bukkit.getServer().getWorlds()) {
             worldNames.add(world.getName());
         }
 
-        return worldNames.toArray(new String[0]);
+        return worldNames;
     }
 
     public static ConfigOptions getConfigOption(EntityType entityType) {
         return entityConfigMap.get(entityType.name());
     }
 
-    public static void addEntityType(EntityType entityType, boolean defaultValue, int defaultSpawnRate, String[] defaultAllowedWorlds) {
+    public static void addEntityType(EntityType entityType, boolean defaultValue, int defaultSpawnRate, List<String> defaultAllowedWorlds) {
         ConfigOptions option = new ConfigOptions(entityType.name().toLowerCase(), defaultValue, defaultSpawnRate, defaultAllowedWorlds);
         entityConfigMap.put(option.getName(), option);
     }
@@ -67,7 +67,7 @@ public class ConfigOptions {
         return configOption != null ? configOption.getSpawnRate() : 0;
     }
 
-    public static String[] getAllowedWorlds(EntityType entityType) {
+    public static List<String> getAllowedWorlds(EntityType entityType) {
         ConfigOptions configOption = getConfigOption(entityType);
         return configOption != null ? configOption.getAllowedWorlds() : null;
     }
@@ -97,11 +97,11 @@ public class ConfigOptions {
         this.spawnRate = spawnRate;
     }
 
-    public String[] getAllowedWorlds() {
-        return allowedWorlds != null && allowedWorlds.length > 0 ? allowedWorlds : defaultAllowedWorlds;
+    public List<String> getAllowedWorlds() {
+        return allowedWorlds != null && !allowedWorlds.isEmpty() ? allowedWorlds : defaultAllowedWorlds;
     }
 
-    public void setAllowedWorlds(String[] allowedWorlds) {
+    public void setAllowedWorlds(List<String> allowedWorlds) {
         this.allowedWorlds = allowedWorlds;
     }
 }
