@@ -1,13 +1,12 @@
 package com.github.xniter.mobspawncontrol;
 
+import com.github.xniter.mobspawncontrol.config.ConfigManager;
+import com.github.xniter.mobspawncontrol.events.CreatureSpawnListener;
 import org.bukkit.Bukkit;
-import org.bukkit.World;
-import org.bukkit.entity.EntityType;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -16,7 +15,6 @@ public class MobSpawnControl extends JavaPlugin {
     public static final Logger LOGGER = LogManager.getLogManager().getLogger("MobSpawnControl");
     private static JavaPlugin plugin;
     private static Random random;
-    private boolean replaceOrig;
 
     public MobSpawnControl() {
     }
@@ -32,68 +30,46 @@ public class MobSpawnControl extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         random = new Random();
-        this.createConfig();
 
-        // Schedule the repeating task
-        int delayTicks = 0;  // Initial delay in ticks (0 for no delay)
-        int periodTicks = 20;  // Repeat every 60 seconds (adjust as needed)
-        new MobSpawnTask().runTaskTimer(this, delayTicks, periodTicks);
+        // Load plugin resources
+        new ConfigManager().loadResources(getPlugin());
 
+        // Register event listener
+        getServer().getPluginManager().registerEvents(new CreatureSpawnListener(), this);
+    }
 
-        this.getServer().getPluginManager().registerEvents(new EntitySpawning(), this);
+    public void reloadPlugin() {
+        // Reload configuration files
+        new ConfigManager().loadResources(getPlugin());
+
+        // Re-register event listener
+        Bukkit.getPluginManager().registerEvents(new CreatureSpawnListener(), this);
+
+        // Notify admins about the reload
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.isOp() || player.hasPermission("mobspawncontrol.admin")) {
+                player.sendMessage(ChatColor.YELLOW + "MobSpawnControl configuration reloaded.");
+            }
+        }
+
+        LOGGER.info("MobSpawnControl configuration reloaded.");
     }
 
     public void onDisable() {
-    }
+        // Log a shutdown message
+        LOGGER.info(getPlugin().getName() + " shutting down successfully!");
 
-    private void createConfig() {
-        try {
-            File file = new File(this.getDataFolder(), "config.yml");
-            this.getConfig();
-            if (!this.getDataFolder().exists()) {
-                this.getDataFolder().mkdirs();
+        // Cancel scheduled tasks
+        getServer().getScheduler().cancelTasks(this);
+
+        // Save configuration
+        saveConfig();
+
+        // Notify admins
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.isOp() || player.hasPermission("mobspawncontrol.admin")) {
+                player.sendMessage(ChatColor.YELLOW + "MobSpawnControl is being disabled. Some features may not be available.");
             }
-
-            if (!file.exists()) {
-                this.getLogger().info("No config.yml found, creating now");
-                // Add comments
-                this.getConfig().options().header("MobSpawnControl Configuration\n"
-                        + "Set values to true to enable, false to disable\n"
-                        + "Spawn rate is an integer value representing the spawn rate (0 to disable spawning)\n"
-                        + "Allowed worlds is a list of world names where the entity can spawn");
-
-                for (EntityType entityType : EntityType.values()) {
-                    if (entityType.isSpawnable() && entityType.isAlive()) {
-                        List<String> worldNames = new ArrayList<>();
-                        for (World world : Bukkit.getServer().getWorlds()) {
-                            worldNames.add(world.getName());
-                        }
-                        ConfigOptions.addEntityType(entityType, false, 50, worldNames);  // Adjust default values as needed
-                    }
-                }
-
-                for (ConfigOptions option : ConfigOptions.entityConfigMap.values()) {
-                    // Create a section for each entity type
-                    String entitySection = "EntityTypes." + option.getName();
-                    this.getConfig().createSection(entitySection);
-
-                    // Set values for each entity type
-                    this.getConfig().set(entitySection + ".Enabled", option.getDefaultValue());
-                    this.getConfig().set(entitySection + ".SpawnRate", option.getSpawnRate());
-                    this.getConfig().set(entitySection + ".AllowedWorlds", option.getAllowedWorlds());
-                }
-            } else {
-                this.getLogger().info("config.yml found!");
-                this.saveConfig();
-            }
-
-            this.saveConfig();
-        } catch (Exception var6) {
-            var6.printStackTrace();
         }
-    }
-
-    public boolean isReplaceOrig() {
-        return this.replaceOrig;
     }
 }
