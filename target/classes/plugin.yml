@@ -1,4 +1,0 @@
-name: NetherMobs
-version: '3.2.0'
-config: EntitiesConfig.yml
-main: com.github.xniter.nethermobs.NetherMobs

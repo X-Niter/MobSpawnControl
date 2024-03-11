@@ -4,33 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="Refactored the whole plugin, major breaking changes, v3.0.0">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/events/CreatureSpawnListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="Name change to NetherMobs, removed the extra mob control features, updated to JDK 17. MC 1.20++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MobSpawnControl.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/NetherMobs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/config/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/EntitiesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/config/EntitiesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/MessagesConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/events/CreatureSpawnListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/utils/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MobSpawnControl-2.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/mobspawncontrol/ConfigOptions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/mobspawncontrol/EntitySpawnListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/mobspawncontrol/MobSpawnControl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-MobSpawnControl-2.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,9 +73,9 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.71149427",
     "rearrange.code.on.save": "true",
     "settings.editor.selected.configurable": "template.copyright.formatting",
     "vue.rearranger.settings.migration": "true"
@@ -260,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706776068542</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Name change to NetherMobs, removed the extra mob control features, updated to JDK 17. MC 1.20++">
+      <option name="closed" value="true" />
+      <created>1710184583134</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1710184583134</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +277,8 @@
     <MESSAGE value="Code cleaning - Class reformation" />
     <MESSAGE value="Check that spawnRate is not zero and... before moving on to spawning an entity." />
     <MESSAGE value="Refactored the whole plugin, major breaking changes, v3.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored the whole plugin, major breaking changes, v3.0.0" />
+    <MESSAGE value="Name change to NetherMobs, removed the extra mob control features, updated to JDK 17. MC 1.20++" />
+    <option name="LAST_COMMIT_MESSAGE" value="Name change to NetherMobs, removed the extra mob control features, updated to JDK 17. MC 1.20++" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
