@@ -4,19 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="Check that spawnRate is not zero and... before moving on to spawning an entity.">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/EntitySpawnListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/ConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/MessagesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/utils/Utils.java" afterDir="false" />
+    <list default="true" id="65a595fa-86ec-41bb-b2dd-6e1fad238d9e" name="Changes" comment="Refactored the whole plugin, major breaking changes, v3.0.0">
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/events/CreatureSpawnListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/ConfigOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/EntitiesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/EntitySpawning.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MobSpawnControl.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/MobSpawnControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/NetherMobs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/config/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/EntitiesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/xniter/nethermobs/config/EntitiesConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/config/MessagesConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/events/CreatureSpawnListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/xniter/mobspawncontrol/utils/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MobSpawnControl-2.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/mobspawncontrol/ConfigOptions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/mobspawncontrol/EntitySpawnListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/xniter/mobspawncontrol/MobSpawnControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-MobSpawnControl-2.0.2.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +50,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +86,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/HungerIsStamina",
+    "last_opened_file_path": "F:/NetherMobs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -81,7 +98,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "settings.editor.selected.configurable": "template.copyright.formatting",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -142,7 +159,10 @@
       <workItem from="1706666572603" duration="4389000" />
       <workItem from="1706674565615" duration="3704000" />
       <workItem from="1706704237124" duration="3446000" />
-      <workItem from="1706754955318" duration="15662000" />
+      <workItem from="1706754955318" duration="20117000" />
+      <workItem from="1706843486245" duration="2471000" />
+      <workItem from="1706847428214" duration="3337000" />
+      <workItem from="1707914870100" duration="98000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.0 Init">
       <option name="closed" value="true" />
@@ -232,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706708087294</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Refactored the whole plugin, major breaking changes, v3.0.0">
+      <option name="closed" value="true" />
+      <created>1706776068542</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706776068542</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +289,8 @@
     <MESSAGE value="Mob spawning has changed to a running task (WIP) to handle spawn rate. Changed the creature spawn event to cancel the creature spawning under conditions to make sure our plugin config is being listened to and not ignored." />
     <MESSAGE value="Code cleaning - Class reformation" />
     <MESSAGE value="Check that spawnRate is not zero and... before moving on to spawning an entity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Check that spawnRate is not zero and... before moving on to spawning an entity." />
+    <MESSAGE value="Refactored the whole plugin, major breaking changes, v3.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the whole plugin, major breaking changes, v3.0.0" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

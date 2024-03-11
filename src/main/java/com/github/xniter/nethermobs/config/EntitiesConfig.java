@@ -1,7 +1,6 @@
-package com.github.xniter.mobspawncontrol.config;
+package com.github.xniter.nethermobs.config;
 
-import com.github.xniter.mobspawncontrol.MobSpawnControl;
-import com.github.xniter.mobspawncontrol.utils.Utils;
+import com.github.xniter.nethermobs.NetherMobs;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,12 +9,15 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class EntitiesConfig {
 
     public static final Map<String, EntitiesConfig> entityConfigMap = new HashMap<>();
-    private static final JavaPlugin plugin = MobSpawnControl.getPlugin();
+    private static final JavaPlugin plugin = NetherMobs.getPlugin();
     private static final File ENTITIES_CONFIG_FILE = new File(plugin.getDataFolder(), "EntitiesConfig.yml");
     private final String name;
     private final Object defaultValue;
@@ -46,22 +48,17 @@ public class EntitiesConfig {
         FileConfiguration config = plugin.getConfig();
 
         if (!ENTITIES_CONFIG_FILE.exists()) {
-            MobSpawnControl.LOGGER.info("No config.yml found, creating now");
+            NetherMobs.LOGGER.info("No EntitiesConfig.yml found, creating now");
 
             // Add comment to the top of Entities Config file
-            plugin.getConfig().options().setHeader(Arrays.asList(
-                    "MobSpawnControl Configuration",
-                    "Set values to true to enable, false to disable",
-                    "Spawn rate is an integer value representing the spawn rate (0 to disable spawning)",
-                    "Allowed worlds is a list of world names where the entity can spawn"
-            ));
+            plugin.getConfig().options().header(
+                    "MobSpawnControl Configuration\n"
+                            + "Set values to true to enable, false to disable\n"
+                            + "Spawn rate is an integer value representing the spawn rate (0 to disable spawning)\n"
+                            + "Allowed worlds is a list of world names where the entity can spawn"
+            );
 
             for (EntitiesConfig option : entityConfigMap.values()) {
-
-                if (entityConfigMap.isEmpty()) {
-                    new Utils().populateEntityMapping();
-                }
-
                 // Create a section for each entity type
                 String entitySection = "EntityTypes." + option.getName();
                 plugin.getConfig().createSection(entitySection);
@@ -73,30 +70,36 @@ public class EntitiesConfig {
             }
             plugin.saveConfig();
         } else {
-            MobSpawnControl.LOGGER.info("config.yml found!");
+            NetherMobs.LOGGER.info("EntitiesConfig.yml found!");
 
-            if (!entityConfigMap.isEmpty()) {
-                entityConfigMap.clear();
-            }
+            entityConfigMap.clear();
 
             for (String entityType : config.getKeys(false)) {
                 boolean defaultValue = config.getBoolean(entityType + ".Enabled", false);
                 int defaultSpawnRate = config.getInt(entityType + ".SpawnRate", 50);
                 List<String> defaultAllowedWorlds = config.getStringList(entityType + ".AllowedWorlds");
 
-                EntitiesConfig option = new EntitiesConfig(entityType.toLowerCase(), defaultValue, defaultSpawnRate, defaultAllowedWorlds);
-                entityConfigMap.put(option.getName(), option);
+                EntitiesConfig option = new EntitiesConfig(entityType.toUpperCase(), defaultValue, defaultSpawnRate, defaultAllowedWorlds);
+                entityConfigMap.put(option.getName().toUpperCase(), option);
             }
-            
+
             plugin.reloadConfig();
         }
+    }
+
+    // Check if an entity is defined in the configuration
+    public static boolean isEntityDefined(EntityType entityType) {
+        return entityConfigMap.containsKey(entityType.toString().toUpperCase());
     }
 
     private static List<String> initializeDefaultAllowedWorlds() {
         List<String> worldNames = new ArrayList<>();
 
         for (World world : Bukkit.getServer().getWorlds()) {
-            worldNames.add(world.getName());
+            if (world.getEnvironment().equals(World.Environment.NETHER)) {
+                worldNames.add(world.getName());
+            }
+
         }
 
         return worldNames;
@@ -106,14 +109,27 @@ public class EntitiesConfig {
         return entityConfigMap.get(entityType.name());
     }
 
+    // Dynamically add an entity type to the configuration
     public static void addEntityType(EntityType entityType, boolean defaultValue, int defaultSpawnRate, List<String> defaultAllowedWorlds) {
-        EntitiesConfig option = new EntitiesConfig(entityType.name().toLowerCase(), defaultValue, defaultSpawnRate, defaultAllowedWorlds);
-        entityConfigMap.put(option.getName(), option);
+        if (!entityConfigMap.containsKey(entityType.name())) {
+            EntitiesConfig option = new EntitiesConfig(entityType.toString().toUpperCase(), defaultValue, defaultSpawnRate, defaultAllowedWorlds);
+            entityConfigMap.put(option.getName().toUpperCase(), option);
+            saveConfig(); // Save the configuration after adding a new entity type
+            NetherMobs.LOGGER.info("Added " + entityType.name() + " to the configuration.");
+        }
     }
 
-    public static boolean isEntityEnabled(EntityType entityType) {
-        EntitiesConfig configOption = getConfigOption(entityType);
-        return configOption != null && (Boolean) configOption.getValue();
+
+    // Save the configuration to the file
+    public static void saveConfig() {
+        FileConfiguration config = plugin.getConfig();
+        for (EntitiesConfig option : entityConfigMap.values()) {
+            String entitySection = "EntityTypes." + option.getName();
+            config.set(entitySection + ".Enabled", option.getDefaultValue());
+            config.set(entitySection + ".SpawnRate", option.getSpawnRate());
+            config.set(entitySection + ".AllowedWorlds", option.getAllowedWorlds());
+        }
+        plugin.saveConfig();
     }
 
     public static int getSpawnRate(EntityType entityType) {
@@ -121,9 +137,15 @@ public class EntitiesConfig {
         return configOption != null ? configOption.getSpawnRate() : 0;
     }
 
-    public static List<String> getAllowedWorlds(EntityType entityType) {
-        EntitiesConfig configOption = getConfigOption(entityType);
-        return configOption != null ? configOption.getAllowedWorlds() : null;
+    // Get all entity types from the configuration
+    public static List<String> getAllEntityTypes() {
+        List<String> entityTypes = new ArrayList<>();
+
+        for (EntitiesConfig option : entityConfigMap.values()) {
+            entityTypes.add(option.getName());
+        }
+
+        return entityTypes;
     }
 
     public String getName() {
@@ -134,30 +156,13 @@ public class EntitiesConfig {
         return this.defaultValue;
     }
 
-    public Object getValue() {
-        return this.value;
-    }
-
-    public void setValue(Object value) {
-        this.value = value;
-    }
-
     // New getters and setters
     public int getSpawnRate() {
         return spawnRate != 0 ? spawnRate : defaultSpawnRate;
     }
 
-    public void setSpawnRate(int spawnRate) {
-        this.spawnRate = spawnRate;
-    }
-
     public List<String> getAllowedWorlds() {
         return allowedWorlds != null && !allowedWorlds.isEmpty() ? allowedWorlds : defaultAllowedWorlds;
     }
-
-    public void setAllowedWorlds(List<String> allowedWorlds) {
-        this.allowedWorlds = allowedWorlds;
-    }
-
 
 }

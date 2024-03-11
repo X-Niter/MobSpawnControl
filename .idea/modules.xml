@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MobSpawnControl.iml" filepath="$PROJECT_DIR$/MobSpawnControl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NetherMobs.iml" filepath="$PROJECT_DIR$/NetherMobs.iml" />
     </modules>
   </component>
 </project>

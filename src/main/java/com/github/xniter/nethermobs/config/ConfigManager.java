@@ -1,4 +1,4 @@
-package com.github.xniter.mobspawncontrol.config;
+package com.github.xniter.nethermobs.config;
 
 import org.bukkit.plugin.Plugin;
 
@@ -14,9 +14,6 @@ public class ConfigManager {
 
         // Load the Entities Config file
         EntitiesConfig.load(plugin);
-
-        // Load the Messages Config file
-        //MessagesConfig.load(plugin);
     }
 
 }

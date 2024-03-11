@@ -1,3 +1,4 @@
-com\github\xniter\mobspawncontrol\EntitySpawnListener.class
-com\github\xniter\mobspawncontrol\ConfigOptions.class
-com\github\xniter\mobspawncontrol\MobSpawnControl.class
+com\github\xniter\nethermobs\events\CreatureSpawnListener.class
+com\github\xniter\nethermobs\NetherMobs.class
+com\github\xniter\nethermobs\config\ConfigManager.class
+com\github\xniter\nethermobs\config\EntitiesConfig.class

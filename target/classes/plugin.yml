@@ -1,3 +1,4 @@
-name: MobSpawnControl
-version: '2.0.2'
-main: com.github.xniter.mobspawncontrol.MobSpawnControl
+name: NetherMobs
+version: '3.2.0'
+config: EntitiesConfig.yml
+main: com.github.xniter.nethermobs.NetherMobs
